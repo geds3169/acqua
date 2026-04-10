@@ -1,175 +1,299 @@
 <!DOCTYPE html>
 <html lang="fr" prefix="og: https://ogp.me/ns#">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Acqua Propreté et Services — Nettoyage Professionnel</title>
-<meta name="description" content="Entreprise de nettoyage professionnel par Guilhem SCHLOSSER. Bureaux, résidences, vitrerie."/>
-<meta name="author" content="Guilhem SCHLOSSER"/>
+    <title>Acqua Propreté et Services | Nettoyage Professionnel & Syndics</title>
+    <meta name="description" content="Acqua Propreté et Services : Entreprise experte en nettoyage de bureaux, copropriétés, vitrerie et parkings. Dirigée par Guilhem SCHLOSSER. Qualité certifiée et devis rapide."/>
+    <meta name="keywords" content="Acqua Propreté et Services, nettoyage professionnel, entretien bureaux, nettoyage copropriété, Guilhem SCHLOSSER, SIRET 93492318600016, nettoyage Fonsorbes"/>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Acqua Propreté et Services",
+      "legalName": "Acqua Propreté et Services",
+      "founder": "Guilhem SCHLOSSER",
+      "description": "Entreprise de nettoyage professionnel et services d'entretien pour entreprises et résidences.",
+      "url": "https://geds3169.github.io/acqua/",
+      "telephone": ["+33632770764", "+33775956881"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Fonsorbes",
+        "addressRegion": "Occitanie",
+        "addressCountry": "FR"
+      }
+    }
+    </script>
 
-<style>
-/* --- TES VARIABLES ORIGINALES --- */
-:root {
-  --navy:       #1B5EA8; 
-  --aqua:       #4BBFE8; 
-  --green:      #4CAF50; 
-  --cream:      #f0f8ff; 
-  --text:       #153660; 
-  --white:      #ffffff;
-  --radius:     12px;
-  --shadow:     0 8px 40px rgba(27,94,168,0.12);
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-/* --- RÉGLAGES GÉNÉRAUX --- */
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); }
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --navy:       #153660; 
+            --acqua:      #1B5EA8; 
+            --green:      #4CAF50; 
+            --white:      #ffffff;
+            --light-bg:   #f9fbfc;
+            --radius:     12px;
+            --shadow:     0 8px 30px rgba(0,0,0,0.08);
+        }
 
-/* --- LE MENU (NAVBAR) --- */
-nav {
-  position: fixed; top:0; left:0; right:0; z-index:1000;
-  display:flex; align-items:center; justify-content:space-between;
-  padding: 0 5vw; height: 75px;
-  background: rgba(13,31,60,0.95); backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0,201,177,0.15);
-}
-.nav-logo img { height: 50px; vertical-align: middle; }
-.nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
+        /* --- RÉGLAGES GÉNÉRAUX --- */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--white); color: #333; line-height: 1.6; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 
-/* --- SECTIONS --- */
-section { padding: 80px 5vw; }
-.section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 40px; color: var(--navy); }
+        /* --- MENU (NAVBAR) --- */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 5vw; height: 80px;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 2px solid var(--acqua);
+            box-shadow: var(--shadow);
+        }
+        .nav-logo { display: flex; align-items: center; gap: 12px; font-weight: bold; color: var(--navy); text-decoration: none; text-transform: uppercase; }
+        .nav-logo img { height: 45px; }
+        .nav-links a { color: var(--navy); text-decoration: none; margin-left: 20px; font-weight: 500; font-size: 0.9rem; }
 
-/* --- GRILLES (Services, Tarifs, Équipe) --- */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-.card { background: var(--white); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); transition: 0.3s; }
-.card:hover { transform: translateY(-5px); }
+        /* --- SECTIONS --- */
+        section { padding: 100px 5vw; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 10px; }
+        .section-subtitle { text-align: center; margin-bottom: 50px; opacity: 0.7; font-style: italic; }
 
-/* --- FORMULAIRE DE CONTACT --- */
-.contact-box { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: var(--radius); shadow: var(--shadow); }
-input, select, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; }
-.btn-send { background: var(--green); color: white; border: none; padding: 15px; width: 100%; font-weight: bold; border-radius: 8px; cursor: pointer; }
+        /* --- GRILLES & CARTES --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: var(--light-bg); padding: 40px; border-radius: var(--radius); transition: 0.3s; border-bottom: 3px solid transparent; }
+        .card:hover { transform: translateY(-5px); border-bottom-color: var(--acqua); box-shadow: var(--shadow); }
 
-/* --- BANDEAU RGPD --- */
-.rgpd-banner {
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
-  background: var(--navy); color: white; padding: 20px 5vw;
-  display: flex; justify-content: space-between; align-items: center;
-}
-.rgpd-banner.hidden { display: none; }
+        /* --- RÉALISATIONS --- */
+        .realisation-item { background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+        .photo-frame { width: 100%; height: 250px; overflow: hidden; }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .photo-caption { padding: 20px; }
 
-/* --- FOOTER --- */
-footer { background: #0a1526; color: white; padding: 50px 5vw; text-align: center; }
-</style>
+        /* --- ENTREPRISE (IDENTITÉ) --- */
+        .company-hero { background: var(--navy); color: white; padding: 60px 5vw; border-radius: var(--radius); }
+        .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 30px; }
+        .data-item h4 { color: var(--acqua); font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 5px; }
+        .insurance-tag { margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.05); border-left: 4px solid var(--green); border-radius: 4px; }
+
+        /* --- FAQ --- */
+        .faq-item { border-bottom: 1px solid #eee; margin-bottom: 10px; }
+        .faq-question { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; font-weight: bold; background: #fdfdfd; }
+        .faq-answer { padding: 0 20px 20px; display: none; color: #666; }
+
+        /* --- VAGUE DÉCORATIVE --- */
+        .wave-container { width: 100%; line-height: 0; overflow: hidden; }
+        .wave-container img { width: 100%; height: auto; }
+
+        /* --- FOOTER --- */
+        footer { background: #0a141d; color: #b0b8c1; padding: 80px 5vw 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
+        footer h4 { color: white; margin-bottom: 20px; }
+        .footer-bottom { margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; text-align: center; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            nav { height: auto; padding: 15px; flex-direction: column; }
+            .nav-links { margin-top: 15px; }
+            section { padding: 60px 5vw; }
+            header h1 { font-size: 2.2rem !important; }
+        }
+    </style>
 </head>
 <body>
 
 <nav>
-    <div class="nav-logo">
-        <img src="logo.png" alt="Acqua Propreté"> 
-        <span style="color:white; margin-left:10px; font-family:'Playfair Display'; font-weight:bold;">ACQUA PROPRETÉ</span>
-    </div>
+    <a href="#" class="nav-logo">
+        <img src="logo.png" alt="Acqua Propreté et Services" onerror="this.src='https://via.placeholder.com/50x50?text=A'">
+        <span>Acqua Propreté et Services</span>
+    </a>
     <div class="nav-links">
         <a href="#services">Services</a>
-        <a href="#tarifs">Tarifs</a>
-        <a href="#equipe">Équipe</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#entreprise">L'Entreprise</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
 
-<header style="height: 80vh; background: var(--navy); color: white; display: flex; align-items: center; justify-content: center; text-align: center;">
-    <div>
-        <h1 style="font-family:'Playfair Display'; font-size: 3.5rem;">Acqua Propreté et Services</h1>
-        <p style="font-size: 1.2rem; margin-top: 20px;">L'excellence du nettoyage par Guilhem SCHLOSSER</p>
-    </div>
+<header style="padding: 180px 5vw 100px; text-align: center; background: radial-gradient(circle at top right, #f0f7ff, #ffffff);">
+    <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px;">L'Excellence du Nettoyage Professionnel</h1>
+    <p style="font-size: 1.25rem; max-width: 850px; margin: 0 auto 40px; color: #555;">
+        <strong>Acqua Propreté et Services</strong> accompagne les entreprises et les syndics pour une propreté irréprochable au service de votre image de marque.
+    </p>
+    <a href="#contact" style="background: var(--navy); color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 10px 20px rgba(21,54,96,0.2);">Demander une étude gratuite</a>
 </header>
 
 <section id="services">
-    <h2 class="section-title">Nos Prestations</h2>
+    <h2 class="section-title">Nos Domaines d'Expertise</h2>
+    <p class="section-subtitle">Des solutions de nettoyage adaptées à chaque secteur.</p>
     <div class="grid">
-        <div class="card"><h3>Bureaux</h3><p>Entretien et hygiène de vos locaux professionnels.</p></div>
-        <div class="card"><h3>Résidences</h3><p>Nettoyage des copropriétés et parties communes.</p></div>
-        <div class="card"><h3>Vitrerie</h3><p>Interventions spécialisées toutes surfaces.</p></div>
+        <div class="card">
+            <h3>Bureaux & Tertiaire</h3>
+            <p>Maintenance rigoureuse des espaces de travail, salles de réunion et sanitaires pour le bien-être de vos collaborateurs.</p>
+        </div>
+        <div class="card">
+            <h3>Copropriétés & Syndics</h3>
+            <p>Entretien des halls d'entrée, cages d'escalier, vitrerie et gestion efficace des bacs roulants.</p>
+        </div>
+        <div class="card">
+            <h3>Remise en état</h3>
+            <p>Intervention experte après travaux, sinistre ou avant une mise en location/vente pour un résultat impeccable.</p>
+        </div>
     </div>
 </section>
 
-<section id="tarifs" style="background: var(--white);">
-    <h2 class="section-title">Exemples de Tarifs</h2>
+<section id="realisations" style="background: var(--light-bg);">
+    <h2 class="section-title">Nos Réalisations</h2>
+    <p class="section-subtitle">Exemples d'interventions réalisées par nos équipes.</p>
     <div class="grid">
-        <div class="card" style="border-top: 5px solid var(--navy);">
-            <h4>Forfait Entretien</h4>
-            <p style="font-size: 1.5rem; color: var(--navy); font-weight: bold;">Dès 150€ HT/mois</p>
+        <div class="realisation-item">
+            <div class="photo-frame">
+                <img src="real-1.jpg" alt="Chantier nettoyage" onerror="this.src='https://via.placeholder.com/400x300?text=Photo+Réalisation'">
+            </div>
+            <div class="photo-caption">
+                <h4>Nettoyage de fin de chantier</h4>
+                <p>Remise en état complète d'un plateau de bureaux de 450m².</p>
+            </div>
         </div>
-        <div class="card" style="border-top: 5px solid var(--aqua);">
-            <h4>Remise en état</h4>
-            <p style="font-size: 1.5rem; color: var(--navy); font-weight: bold;">Sur Devis</p>
-        </div>
-    </div>
-</section>
-
-<section id="equipe">
-    <h2 class="section-title">Notre Équipe</h2>
-    <div class="grid" style="text-align: center;">
-        <div>
-            <div style="width:120px; height:120px; background:#ccc; border-radius:50%; margin: 0 auto 15px;"></div>
-            <p><strong>Guilhem SCHLOSSER</strong></p>
-            <p style="font-size: 0.9rem;">Directeur Général</p>
-        </div>
-        <div>
-            <div style="width:120px; height:120px; background:#ccc; border-radius:50%; margin: 0 auto 15px;"></div>
-            <p><strong>Agent Expert</strong></p>
-            <p style="font-size: 0.9rem;">Chef d'Équipe</p>
+        <div class="realisation-item">
+            <div class="photo-frame">
+                <img src="real-2.jpg" alt="Nettoyage vitres" onerror="this.src='https://via.placeholder.com/400x300?text=Photo+Réalisation'">
+            </div>
+            <div class="photo-caption">
+                <h4>Entretien Vitrerie</h4>
+                <p>Intervention spécialisée sur une façade commerciale vitrée.</p>
+            </div>
         </div>
     </div>
 </section>
 
-<section style="background: var(--white);">
-    <h2 class="section-title">Ils nous font confiance</h2>
-    <div style="display: flex; justify-content: space-around; flex-wrap: wrap; opacity: 0.6;">
-        <p>PARTENAIRE 1</p><p>PARTENAIRE 2</p><p>PARTENAIRE 3</p>
+<section id="entreprise">
+    <div class="company-hero">
+        <h2 style="color: white; margin-bottom: 10px;">Identité de l'Entreprise</h2>
+        <p style="opacity: 0.8;">Informations légales relatives à Acqua Propreté et Services.</p>
+        
+        <div class="data-grid">
+            <div class="data-item">
+                <h4>Dénomination sociale</h4>
+                <p>Acqua Propreté et Services</p>
+            </div>
+            <div class="data-item">
+                <h4>Dirigeant Fondateur</h4>
+                <p>Guilhem SCHLOSSER</p>
+            </div>
+            <div class="data-item">
+                <h4>Numéro SIRET</h4>
+                <p>934 923 186 00016</p>
+            </div>
+            <div class="data-item">
+                <h4>Secteur d'activité</h4>
+                <p>8121Z - Nettoyage des bâtiments</p>
+            </div>
+        </div>
+        
+        <div class="insurance-tag">
+            <p><strong>✓ Assurance RC Pro :</strong> Entreprise couverte par une Assurance Responsabilité Civile Professionnelle spécifique au domaine du nettoyage.</p>
+        </div>
+    </div>
+
+    <div style="margin-top: 80px;">
+        <h3 style="text-align: center; margin-bottom: 40px;">Notre Équipe</h3>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div style="text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+                <p style="font-weight: bold; color: var(--navy);">Guilhem SCHLOSSER</p>
+                <p style="font-size: 0.9rem; opacity: 0.7;">Directeur Général</p>
+            </div>
+            <div style="text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+                <p style="font-weight: bold; color: var(--navy);">Équipe d'Intervention</p>
+                <p style="font-size: 0.9rem; opacity: 0.7;">Agents Experts</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section style="background: #fdfdfd;">
+    <h2 class="section-title">Confiance & Avis</h2>
+    <div class="grid" style="margin-bottom: 60px;">
+        <div style="text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 12px; background: white;">
+            <p style="font-size: 1.5rem; font-weight: bold; color: #4285F4;">Google Avis</p>
+            <p>⭐ 4.9/5 — Excellence Service</p>
+        </div>
+        <div style="text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 12px; background: white;">
+            <p style="font-size: 1.5rem; font-weight: bold; color: #FFD200;">Pages Jaunes</p>
+            <p>Consultez nos recommandations</p>
+        </div>
+    </div>
+
+    <div style="max-width: 800px; margin: 0 auto;">
+        <h3 style="margin-bottom: 30px; text-align: center;">Questions Fréquentes (FAQ)</h3>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Quelles zones géographiques couvrez-vous ? <span>+</span></div>
+            <div class="faq-answer">Nous intervenons principalement sur Fonsorbes (31470) et toute l'agglomération de Toulouse.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Êtes-vous assurés en cas de dommages ? <span>+</span></div>
+            <div class="faq-answer">Oui, Acqua Propreté et Services dispose d'une assurance Responsabilité Civile Professionnelle complète.</div>
+        </div>
     </div>
 </section>
 
 <section id="contact" style="background: var(--navy); color: white;">
-    <h2 class="section-title" style="color: white;">Contactez-nous</h2>
-    <div class="contact-box">
-        <form action="https://formspree.io/f/TON_ID" method="POST">
-            <input type="text" name="nom" placeholder="Nom / Entreprise" required>
-            <input type="email" name="email" placeholder="Votre Email" required>
-            <textarea name="message" rows="5" placeholder="Votre besoin..." required></textarea>
-            <input type="text" name="_gotcha" style="display:none"> <button type="submit" class="btn-send">ENVOYER LA DEMANDE</button>
+    <h2 class="section-title" style="color: white;">Demander un Devis Gratuit</h2>
+    <div style="max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: var(--radius); color: #333;">
+        <form action="https://formspree.io/f/VOTRE_ID" method="POST">
+            <input type="text" name="nom" placeholder="Nom ou Entreprise" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd; border-radius:8px;" required>
+            <input type="email" name="email" placeholder="Votre Email" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd; border-radius:8px;" required>
+            <textarea name="message" placeholder="Détaillez votre besoin (surfaces, fréquence...)" rows="5" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd; border-radius:8px;" required></textarea>
+            <button type="submit" style="width:100%; background: var(--acqua); color: white; padding: 15px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Envoyer la demande</button>
         </form>
     </div>
 </section>
 
-<div id="cookieBanner" class="rgpd-banner">
-    <p>En poursuivant, vous acceptez l'usage des cookies pour votre confort de navigation.</p>
-    <button onclick="acceptCookies()" style="padding:10px 20px; background:var(--green); color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">ACCEPTER</button>
-</div>
-
 <footer>
-    <p style="font-size: 1.1rem; font-weight: bold;">Acqua Propreté et Services</p>
-    <p style="margin: 15px 0; opacity: 0.8;">
-        &copy; 2026 — <strong>Guilhem SCHLOSSER</strong>. Tous droits réservés.
-    </p>
-    <p style="font-size: 0.8rem; opacity: 0.6;">
-        Toute reproduction, même partielle, du code, du design ou des photos est strictement interdite.<br>
-        Propriété intellectuelle exclusive de Guilhem SCHLOSSER.
-    </p>
+    <div class="footer-grid">
+        <div>
+            <h4 style="text-transform: uppercase;">Acqua Propreté et Services</h4>
+            <p>La référence en hygiène et propreté pour les professionnels et les syndics en Occitanie.</p>
+        </div>
+        <div>
+            <h4>Contact Rapide</h4>
+            <p>📞 06 32 77 07 64</p>
+            <p>📞 07 75 95 68 81</p>
+            <p>✉️ acquaproprete@gmail.com</p>
+        </div>
+        <div>
+            <h4>Informations Légales</h4>
+            <p>SIRET : 934 923 186 00016</p>
+            <p>Entrepreneur Individuel : G. SCHLOSSER</p>
+            <p>Siège : 31470 Fonsorbes</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 Acqua Propreté et Services — Tous droits réservés. <br>
+        Toute reproduction du design ou du contenu est strictement interdite. Propriété de Guilhem SCHLOSSER.
+    </div>
 </footer>
 
 <script>
-    // GESTION DU BANDEAU COOKIES
-    function acceptCookies() {
-        document.getElementById('cookieBanner').classList.add('hidden');
-        localStorage.setItem('cookie_accepted', 'true');
-    }
-    window.onload = function() {
-        if (localStorage.getItem('cookie_accepted') === 'true') {
-            document.getElementById('cookieBanner').classList.add('hidden');
+    function toggleFaq(el) {
+        const answer = el.nextElementSibling;
+        const span = el.querySelector('span');
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+            span.innerText = "+";
+        } else {
+            answer.style.display = "block";
+            span.innerText = "-";
         }
-    };
+    }
 </script>
 
 </body>
