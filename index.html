@@ -1,83 +1,158 @@
-<section id="tarifs" style="padding: 80px 5vw; background: var(--white);">
-    <div style="text-align: center; max-width: 900px; margin: 0 auto 50px;">
-        <h2 style="font-family:'Playfair Display'; font-size: 2.5rem; color: var(--navy); margin-bottom: 20px;">Exemples de Prestations & Tarifs</h2>
-        <p style="color: var(--text-muted);">Nos tarifs sont donnés à titre indicatif. Chaque intervention fait l'objet d'un devis personnalisé gratuit après visite sur site.</p>
-    </div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acqua Propreté et Services — Nettoyage Professionnel</title>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto;">
+    <style>
+        /* LES VARIABLES : Modifie les codes ici pour changer les couleurs partout */
+        :root {
+            --navy:       #1B5EA8; /* Bleu Foncé : Titres et Menu */
+            --aqua:       #4BBFE8; /* Bleu Clair : Boutons secondaires */
+            --green:      #4CAF50; /* Vert : Bouton de validation */
+            --cream:      #f0f8ff; /* Couleur de fond des sections */
+            --white:      #ffffff; /* Blanc pur */
+            --text:       #153660; /* Couleur du texte à lire */
+        }
+
+        /* RÉGLAGES DE BASE */
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
+
+        /* LE MENU : La barre qui reste en haut de l'écran */
+        nav {
+            position: fixed; top:0; left:0; right:0; z-index:1000;
+            display:flex; align-items:center; justify-content:space-between;
+            padding: 0 5vw; height: 70px;
+            background: rgba(13,31,60,0.95);
+            backdrop-filter: blur(10px);
+        }
+        .nav-logo { color: var(--white); font-weight: bold; font-size: 1.2rem; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; }
+
+        /* L'IMAGE D'ACCUEIL (HERO) */
+        header {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1581578731548-c64695cc6958?auto=format&fit=crop&q=80'); 
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; text-align: center; color: white;
+        }
+
+        /* LES SECTIONS : Espacement entre les blocs de contenu */
+        section { padding: 80px 5vw; }
         
-        <div style="background: var(--cream); padding: 30px; border-radius: var(--radius); border-top: 5px solid var(--navy); box-shadow: var(--shadow);">
-            <h3 style="margin-bottom: 15px;">Bureaux & Commerces</h3>
-            <p style="font-size: 1.5rem; color: var(--navy); font-weight: 700; margin-bottom: 15px;">Dès 150€ <span style="font-size: 0.9rem; font-weight: 400;">HT / mois</span></p>
-            <ul style="list-style: none; color: var(--text-muted); line-height: 1.8;">
-                <li>✓ 1 passage par semaine</li>
-                <li>✓ Vidage des corbeilles</li>
-                <li>✓ Nettoyage sanitaires</li>
-                <li>✓ Dépoussiérage des postes</li>
-            </ul>
-        </div>
+        /* LES CARTES : Les blocs blancs pour Services et Tarifs */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
 
-        <div style="background: var(--cream); padding: 30px; border-radius: var(--radius); border-top: 5px solid var(--aqua); box-shadow: var(--shadow);">
-            <h3 style="margin-bottom: 15px;">Vitrerie Pro</h3>
-            <p style="font-size: 1.5rem; color: var(--navy); font-weight: 700; margin-bottom: 15px;">Dès 45€ <span style="font-size: 0.9rem; font-weight: 400;">HT / intervention</span></p>
-            <ul style="list-style: none; color: var(--text-muted); line-height: 1.8;">
-                <li>✓ Nettoyage simple ou double face</li>
-                <li>✓ Entretien des huisseries</li>
-                <li>✓ Vitrines de magasins</li>
-                <li>✓ Travail en hauteur possible</li>
-            </ul>
-        </div>
+        /* LE PIED DE PAGE (FOOTER) */
+        footer { background: #0a1a2f; color: white; padding: 40px 5vw; text-align: center; font-size: 0.9rem; }
 
-        <div style="background: var(--cream); padding: 30px; border-radius: var(--radius); border-top: 5px solid var(--green); box-shadow: var(--shadow);">
-            <h3 style="margin-bottom: 15px;">Remise en état</h3>
-            <p style="font-size: 1.5rem; color: var(--navy); font-weight: 700; margin-bottom: 15px;">Sur Devis <span style="font-size: 0.9rem; font-weight: 400;">uniquement</span></p>
-            <ul style="list-style: none; color: var(--text-muted); line-height: 1.8;">
-                <li>✓ Après travaux / sinistre</li>
-                <li>✓ Décapage des sols</li>
-                <li>✓ Nettoyage fin de bail</li>
-                <li>✓ Matériel industriel inclus</li>
-            </ul>
-        </div>
-    </div>
-</section>
+        /* BANDEAU COOKIES */
+        .rgpd-banner {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+            background: var(--navy); color: white; padding: 20px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .rgpd-banner.hidden { display: none; }
+    </style>
+</head>
+<body>
 
-<section id="contact" style="padding: 80px 5vw; background: var(--navy); color: white;">
-    <div style="max-width: 600px; margin: 0 auto;">
-        <h2 style="text-align:center; font-family:'Playfair Display'; margin-bottom: 10px;">Demander un Devis Gratuit</h2>
-        <p style="text-align:center; margin-bottom: 40px; color: rgba(255,255,255,0.7);">Réponse garantie sous 24h</p>
-        
-        <form action="https://formspree.io/f/VOTRE_ID_ICI" method="POST" id="contact-form" style="background: white; padding: 30px; border-radius: var(--radius);">
+    <nav>
+        <div class="nav-logo">ACQUA PROPRETÉ</div>
+        <div class="nav-links">
+            <a href="#services">Services</a> <a href="#tarifs">Tarifs</a>     <a href="#contact">Contact</a>   </div>
+    </nav>
+
+    <header>
+        <div>
+            <h1 style="font-size: 3rem;">Acqua Propreté et Services</h1>
+            <p>Expertise en nettoyage professionnel et industriel</p>
+        </div>
+    </header>
+
+    <section id="services">
+        <h2 style="text-align:center; margin-bottom:40px; color:var(--navy);">Nos Domaines d'Intervention</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Bureaux</h3>
+                <p>Nettoyage complet des surfaces de travail et désinfection.</p>
+            </div>
+            <div class="card">
+                <h3>Vitrerie</h3>
+                <p>Lavage de vitres pour particuliers et devantures de magasins.</p>
+            </div>
+            <div class="card">
+                <h3>Parkings</h3>
+                <p>Dégraissage et balayage mécanique des surfaces de stationnement.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tarifs" style="background-color: var(--white);">
+        <h2 style="text-align:center; margin-bottom:40px; color:var(--navy);">Exemples de Tarifs</h2>
+        <div class="grid">
+            <div class="card" style="border-top: 5px solid var(--navy);">
+                <h4>Entretien Bureaux</h4>
+                <p style="font-size: 1.5rem; font-weight: bold; color:var(--navy);">Dès 150€ HT / mois</p>
+            </div>
+            <div class="card" style="border-top: 5px solid var(--aqua);">
+                <h4>Remise en état</h4>
+                <p style="font-size: 1.5rem; font-weight: bold; color:var(--navy);">Sur Devis</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background-color: var(--navy); color: white;">
+        <div style="max-width: 600px; margin: 0 auto;">
+            <h2 style="text-align:center; margin-bottom: 20px;">Demander un devis gratuit</h2>
             
-            <div style="margin-bottom: 15px;">
-                <label style="display:block; margin-bottom:5px; font-weight:600; color: var(--text);">Nom Complet ou Entreprise</label>
-                <input type="text" name="nom" required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:6px;">
-            </div>
+            <form action="https://formspree.io/f/TON_ID_FORMSPREE" method="POST">
+                <input type="text" name="nom" placeholder="Votre Nom" required style="width:100%; padding:12px; margin-bottom:10px; border-radius:5px;">
+                <input type="email" name="email" placeholder="Votre Email" required style="width:100%; padding:12px; margin-bottom:10px; border-radius:5px;">
+                <textarea name="message" placeholder="Détaillez votre demande..." rows="4" required style="width:100%; padding:12px; margin-bottom:10px; border-radius:5px;"></textarea>
+                
+                <input type="text" name="_gotcha" style="display:none">
+                
+                <button type="submit" style="width:100%; background:var(--green); color:white; border:none; padding:15px; font-weight:bold; cursor:pointer; border-radius:5px;">ENVOYER MA DEMANDE</button>
+            </form>
+        </div>
+    </section>
 
-            <div style="margin-bottom: 15px;">
-                <label style="display:block; margin-bottom:5px; font-weight:600; color: var(--text);">Votre Email</label>
-                <input type="email" name="email" required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:6px;">
-            </div>
+    <footer>
+        <p>&copy; 2026 <strong>Acqua Propreté et Services</strong>. Tous droits réservés.</p>
+        <p style="margin: 10px 0; opacity: 0.8;">
+            Propriété exclusive de <strong>Guilhem SCHLOSSER</strong>. 
+            Toute reproduction du code, du design ou des contenus est strictement interdite.
+        </p>
+        <p style="font-size: 0.8rem; opacity: 0.6;">Dernière mise à jour : 10 Avril 2026</p>
+    </footer>
 
-            <div style="margin-bottom: 15px;">
-                <label style="display:block; margin-bottom:5px; font-weight:600; color: var(--text);">Type de service</label>
-                <select name="prestation" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:6px;">
-                    <option value="bureaux">Bureaux / Commerces</option>
-                    <option value="vitrerie">Vitrerie</option>
-                    <option value="residence">Copropriété</option>
-                    <option value="remise-en-etat">Remise en état</option>
-                </select>
-            </div>
-
-            <div style="margin-bottom: 20px;">
-                <label style="display:block; margin-bottom:5px; font-weight:600; color: var(--text);">Détails de votre besoin</label>
-                <textarea name="message" rows="4" required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:6px;" placeholder="Surface en m2, fréquence souhaitée..."></textarea>
-            </div>
-
-            <input type="text" name="_gotcha" style="display:none">
-
-            <button type="submit" style="width:100%; background:var(--green); color:white; padding:15px; border:none; border-radius:6px; font-weight:700; cursor:pointer; font-size: 1rem; transition: background 0.3s;">
-                Envoyer ma demande de devis
-            </button>
-        </form>
+    <div class="rgpd-banner" id="cookieBanner">
+        <span>En poursuivant, vous acceptez l'utilisation de cookies pour améliorer votre expérience.</span>
+        <button onclick="accepterCookies()" style="background:var(--green); color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer; font-weight:bold;">ACCEPTER</button>
     </div>
-</section>
+
+    <script>
+        // Fonction pour cacher le bandeau et se souvenir du choix
+        function accepterCookies() {
+            // 1. On cache immédiatement le bandeau
+            document.getElementById('cookieBanner').classList.add('hidden');
+            // 2. On enregistre le choix dans la mémoire du navigateur
+            localStorage.setItem('cookieChoice', 'accepted');
+        }
+
+        // Au chargement de la page, on regarde si on a déjà accepté
+        window.onload = function() {
+            if (localStorage.getItem('cookieChoice') === 'accepted') {
+                document.getElementById('cookieBanner').classList.add('hidden');
+            }
+        };
+    </script>
+
+</body>
+</html>
