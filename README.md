@@ -1,4 +1,4 @@
-# Configuration du Formulaire de Contact - Acqua Propreté
+# Configuration du Formulaire de Contact - Acqua Propreté et services
 
 Ce projet utilise un formulaire statique sécurisé via **Formspree**. Cela permet de recevoir des emails sans exposer votre adresse Gmail dans le code source et sans avoir besoin d'un serveur (PHP).
 
