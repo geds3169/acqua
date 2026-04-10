@@ -1,0 +1,83 @@
+<section id="tarifs" style="padding: 80px 5vw; background: var(--white);">
+    <div style="text-align: center; max-width: 900px; margin: 0 auto 50px;">
+        <h2 style="font-family:'Playfair Display'; font-size: 2.5rem; color: var(--navy); margin-bottom: 20px;">Exemples de Prestations & Tarifs</h2>
+        <p style="color: var(--text-muted);">Nos tarifs sont donnés à titre indicatif. Chaque intervention fait l'objet d'un devis personnalisé gratuit après visite sur site.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto;">
+        
+        <div style="background: var(--cream); padding: 30px; border-radius: var(--radius); border-top: 5px solid var(--navy); box-shadow: var(--shadow);">
+            <h3 style="margin-bottom: 15px;">Bureaux & Commerces</h3>
+            <p style="font-size: 1.5rem; color: var(--navy); font-weight: 700; margin-bottom: 15px;">Dès 150€ <span style="font-size: 0.9rem; font-weight: 400;">HT / mois</span></p>
+            <ul style="list-style: none; color: var(--text-muted); line-height: 1.8;">
+                <li>✓ 1 passage par semaine</li>
+                <li>✓ Vidage des corbeilles</li>
+                <li>✓ Nettoyage sanitaires</li>
+                <li>✓ Dépoussiérage des postes</li>
+            </ul>
+        </div>
+
+        <div style="background: var(--cream); padding: 30px; border-radius: var(--radius); border-top: 5px solid var(--aqua); box-shadow: var(--shadow);">
+            <h3 style="margin-bottom: 15px;">Vitrerie Pro</h3>
+            <p style="font-size: 1.5rem; color: var(--navy); font-weight: 700; margin-bottom: 15px;">Dès 45€ <span style="font-size: 0.9rem; font-weight: 400;">HT / intervention</span></p>
+            <ul style="list-style: none; color: var(--text-muted); line-height: 1.8;">
+                <li>✓ Nettoyage simple ou double face</li>
+                <li>✓ Entretien des huisseries</li>
+                <li>✓ Vitrines de magasins</li>
+                <li>✓ Travail en hauteur possible</li>
+            </ul>
+        </div>
+
+        <div style="background: var(--cream); padding: 30px; border-radius: var(--radius); border-top: 5px solid var(--green); box-shadow: var(--shadow);">
+            <h3 style="margin-bottom: 15px;">Remise en état</h3>
+            <p style="font-size: 1.5rem; color: var(--navy); font-weight: 700; margin-bottom: 15px;">Sur Devis <span style="font-size: 0.9rem; font-weight: 400;">uniquement</span></p>
+            <ul style="list-style: none; color: var(--text-muted); line-height: 1.8;">
+                <li>✓ Après travaux / sinistre</li>
+                <li>✓ Décapage des sols</li>
+                <li>✓ Nettoyage fin de bail</li>
+                <li>✓ Matériel industriel inclus</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="contact" style="padding: 80px 5vw; background: var(--navy); color: white;">
+    <div style="max-width: 600px; margin: 0 auto;">
+        <h2 style="text-align:center; font-family:'Playfair Display'; margin-bottom: 10px;">Demander un Devis Gratuit</h2>
+        <p style="text-align:center; margin-bottom: 40px; color: rgba(255,255,255,0.7);">Réponse garantie sous 24h</p>
+        
+        <form action="https://formspree.io/f/VOTRE_ID_ICI" method="POST" id="contact-form" style="background: white; padding: 30px; border-radius: var(--radius);">
+            
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; margin-bottom:5px; font-weight:600; color: var(--text);">Nom Complet ou Entreprise</label>
+                <input type="text" name="nom" required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:6px;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; margin-bottom:5px; font-weight:600; color: var(--text);">Votre Email</label>
+                <input type="email" name="email" required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:6px;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label style="display:block; margin-bottom:5px; font-weight:600; color: var(--text);">Type de service</label>
+                <select name="prestation" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:6px;">
+                    <option value="bureaux">Bureaux / Commerces</option>
+                    <option value="vitrerie">Vitrerie</option>
+                    <option value="residence">Copropriété</option>
+                    <option value="remise-en-etat">Remise en état</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display:block; margin-bottom:5px; font-weight:600; color: var(--text);">Détails de votre besoin</label>
+                <textarea name="message" rows="4" required style="width:100%; padding:12px; border:1px solid #ddd; border-radius:6px;" placeholder="Surface en m2, fréquence souhaitée..."></textarea>
+            </div>
+
+            <input type="text" name="_gotcha" style="display:none">
+
+            <button type="submit" style="width:100%; background:var(--green); color:white; padding:15px; border:none; border-radius:6px; font-weight:700; cursor:pointer; font-size: 1rem; transition: background 0.3s;">
+                Envoyer ma demande de devis
+            </button>
+        </form>
+    </div>
+</section>
