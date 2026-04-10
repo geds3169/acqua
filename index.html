@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <title>Acqua Propreté | Nettoyage Professionnel & Industriel</title>
-    <meta name="description" content="Acqua Propreté : Expert en nettoyage de bureaux, copropriétés, vitrerie et nettoyage industriel à Pamiers et alentours. Qualité certifiée et devis rapide."/>
-    <meta name="keywords" content="Acqua Propreté, nettoyage professionnel, entretien bureaux, nettoyage industriel, Pamiers, SIRET 83408270300036, nettoyage 09100"/>
+    <meta name="description" content="Acqua Propreté : Expert en nettoyage de bureaux, copropriétés, vitrerie et nettoyage industriel à Pamiers et alentours. Qualité certifiée."/>
     
     <script type="application/ld+json">
     {
@@ -14,9 +13,6 @@
       "@type": "LocalBusiness",
       "name": "Acqua Propreté",
       "legalName": "ACQUA PROPRETE",
-      "description": "Entreprise de nettoyage professionnel et services d'entretien pour entreprises et résidences.",
-      "url": "https://geds3169.github.io/acqua/",
-      "telephone": ["+33632770764", "+33775956881"],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "31 RUE DES CARMES",
@@ -32,7 +28,6 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- VARIABLES --- */
         :root {
             --navy:       #153660; 
             --acqua:      #1B5EA8; 
@@ -43,13 +38,12 @@
             --shadow:     0 8px 30px rgba(0,0,0,0.08);
         }
 
-        /* --- RÉGLAGES GÉNÉRAUX --- */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'DM Sans', sans-serif; background: var(--white); color: #333; line-height: 1.6; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--white); color: #333; line-height: 1.6; overflow-x: hidden; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 
-        /* --- MENU (NAVBAR) --- */
+        /* --- MENU --- */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
             display: flex; align-items: center; justify-content: space-between;
@@ -67,39 +61,43 @@
         .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 10px; }
         .section-subtitle { text-align: center; margin-bottom: 50px; opacity: 0.7; font-style: italic; }
 
-        /* --- GRILLES & CARTES --- */
+        /* --- GRILLES --- */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .card { background: var(--light-bg); padding: 40px; border-radius: var(--radius); transition: 0.3s; border-bottom: 3px solid transparent; }
         .card:hover { transform: translateY(-5px); border-bottom-color: var(--acqua); box-shadow: var(--shadow); }
 
-        /* --- ÉQUIPE INTERACTIVE --- */
-        .team-container { position: relative; max-width: 900px; margin: 0 auto; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
-        .team-image { width: 100%; display: block; }
+        /* --- ÉQUIPE PHOTO INTERACTIVE --- */
+        .team-wrapper { position: relative; max-width: 1000px; margin: 0 auto; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+        .team-img { width: 100%; display: block; filter: brightness(0.9); }
         
-        /* Points d'interaction sur la photo */
-        .member-dot {
-            position: absolute; width: 24px; height: 24px; background: var(--acqua);
+        .member-point {
+            position: absolute; width: 28px; height: 28px; background: var(--acqua);
             border: 3px solid white; border-radius: 50%; cursor: pointer;
-            transform: translate(-50%, -50%); transition: 0.3s;
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            transform: translate(-50%, -50%); transition: all 0.3s ease;
+            display: flex; align-items: center; justify-content: center;
         }
-        .member-dot:hover { transform: translate(-50%, -50%) scale(1.3); background: var(--green); }
+        .member-point::after {
+            content: ''; position: absolute; width: 100%; height: 100%;
+            border-radius: 50%; background: var(--acqua); opacity: 0.4;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { transform: scale(1); } 100% { transform: scale(2.5); opacity: 0; } }
 
-        /* Tooltip (Info-bulle) */
-        .tooltip {
-            visibility: hidden; position: absolute; bottom: 150%; left: 50%;
+        .member-point:hover { background: var(--green); scale: 1.2; }
+
+        .info-bubble {
+            visibility: hidden; position: absolute; bottom: 40px; left: 50%;
             transform: translateX(-50%); background: var(--navy); color: white;
-            padding: 10px 15px; border-radius: 8px; width: 180px; text-align: center;
-            font-size: 0.85rem; z-index: 10; opacity: 0; transition: 0.3s;
+            padding: 12px 20px; border-radius: 8px; width: max-content;
+            text-align: center; font-size: 0.9rem; z-index: 100; opacity: 0; transition: 0.3s;
+            box-shadow: var(--shadow);
         }
-        .tooltip::after { content: ""; position: absolute; top: 100%; left: 50%; margin-left: -5px; border-width: 5px; border-style: solid; border-color: var(--navy) transparent transparent transparent; }
-        .member-dot:hover .tooltip { visibility: visible; opacity: 1; bottom: 160%; }
+        .member-point:hover .info-bubble { visibility: visible; opacity: 1; bottom: 50px; }
 
-        /* --- ENTREPRISE (IDENTITÉ) --- */
+        /* --- IDENTITÉ ENTREPRISE --- */
         .company-hero { background: var(--navy); color: white; padding: 60px 5vw; border-radius: var(--radius); }
         .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 30px; }
-        .data-item h4 { color: var(--acqua); font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 5px; }
-        .insurance-tag { margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.05); border-left: 4px solid var(--green); border-radius: 4px; }
+        .data-item h4 { color: var(--acqua); font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 5px; text-transform: uppercase; }
 
         /* --- FAQ --- */
         .faq-item { border-bottom: 1px solid #eee; margin-bottom: 10px; }
@@ -108,16 +106,14 @@
 
         /* --- FOOTER --- */
         footer { background: #0a141d; color: #b0b8c1; padding: 80px 5vw 30px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; }
         footer h4 { color: white; margin-bottom: 20px; }
         .footer-bottom { margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; text-align: center; }
 
-        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            nav { height: auto; padding: 15px; flex-direction: column; }
+            nav { height: auto; padding: 15px; flex-direction: column; position: relative; }
             .nav-links { margin-top: 15px; }
             section { padding: 60px 5vw; }
-            header h1 { font-size: 2.2rem !important; }
         }
     </style>
 </head>
@@ -130,54 +126,54 @@
     </a>
     <div class="nav-links">
         <a href="#services">Services</a>
-        <a href="#entreprise">L'Entreprise</a>
-        <a href="#equipe">Notre Équipe</a>
+        <a href="#equipe">L'Équipe</a>
+        <a href="#entreprise">Infos Légales</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
 
-<header style="padding: 180px 5vw 100px; text-align: center; background: radial-gradient(circle at top right, #f0f7ff, #ffffff);">
+<header style="padding: 160px 5vw 100px; text-align: center; background: radial-gradient(circle at top right, #f0f7ff, #ffffff);">
     <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px;">L'Excellence du Nettoyage Professionnel</h1>
     <p style="font-size: 1.25rem; max-width: 850px; margin: 0 auto 40px; color: #555;">
-        <strong>Acqua Propreté</strong> accompagne les entreprises, industries et syndics pour une propreté irréprochable au service de votre image de marque.
+        <strong>Acqua Propreté</strong> assure l'entretien de vos locaux industriels, bureaux et copropriétés avec une rigueur certifiée.
     </p>
     <a href="#contact" style="background: var(--navy); color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 10px 20px rgba(21,54,96,0.2);">Demander une étude gratuite</a>
 </header>
 
 <section id="services">
     <h2 class="section-title">Nos Domaines d'Expertise</h2>
-    <p class="section-subtitle">Des solutions de nettoyage adaptées à chaque secteur.</p>
+    <p class="section-subtitle">Solutions de nettoyage spécialisées en Ariège et Haute-Garonne.</p>
     <div class="grid">
         <div class="card">
-            <h3>Bureaux & Tertiaire</h3>
-            <p>Maintenance rigoureuse des espaces de travail, salles de réunion et sanitaires pour le bien-être de vos collaborateurs.</p>
-        </div>
-        <div class="card">
             <h3>Nettoyage Industriel</h3>
-            <p>Interventions spécialisées en milieux industriels et nettoyage technique des bâtiments (Code 8122Z).</p>
+            <p>Expertise technique pour les bâtiments industriels et sites de production (Code 8122Z).</p>
         </div>
         <div class="card">
-            <h3>Copropriétés & Syndics</h3>
-            <p>Entretien des halls d'entrée, cages d'escalier, vitrerie et gestion efficace des bacs roulants.</p>
+            <h3>Bureaux & Tertiaire</h3>
+            <p>Maintenance des espaces de travail pour garantir hygiène et confort à vos équipes.</p>
+        </div>
+        <div class="card">
+            <h3>Copropriétés</h3>
+            <p>Entretien des parties communes et gestion des vitreries pour les syndics de copropriété.</p>
         </div>
     </div>
 </section>
 
 <section id="equipe" style="background: var(--light-bg);">
     <h2 class="section-title">Notre Équipe</h2>
-    <p class="section-subtitle">Rencontrez les experts qui assurent la propreté de vos locaux. Survolez les points pour nous identifier !</p>
+    <p class="section-subtitle">Une équipe soudée au service de la propreté. Survolez les points pour nous découvrir.</p>
     
-    <div class="team-container">
-        <img src="equipe-globale.jpg" alt="Équipe Acqua Propreté" class="team-image" onerror="this.src='https://via.placeholder.com/900x500?text=Photo+de+groupe+Equipe+Acqua'">
+    <div class="team-wrapper">
+        <img src="equipe.jpg" alt="Equipe Acqua Propreté" class="team-img" onerror="this.src='https://via.placeholder.com/1000x500/153660/ffffff?text=Photo+de+l%27equipe+Acqua'">
         
-        <div class="member-dot" style="top: 40%; left: 30%;">
-            <div class="tooltip"><strong>Salarié 1</strong><br>Agent d'Intervention</div>
+        <div class="member-point" style="top: 45%; left: 25%;">
+            <div class="info-bubble"><strong>Jean Dupont</strong><br>Agent Spécialisé</div>
         </div>
-        <div class="member-dot" style="top: 35%; left: 50%;">
-            <div class="tooltip"><strong>Responsable</strong><br>Superviseur Technique</div>
+        <div class="member-point" style="top: 40%; left: 50%;">
+            <div class="info-bubble"><strong>Marie Curie</strong><br>Chef d'Équipe</div>
         </div>
-        <div class="member-dot" style="top: 42%; left: 70%;">
-            <div class="tooltip"><strong>Salarié 2</strong><br>Expert Vitrerie</div>
+        <div class="member-point" style="top: 48%; left: 75%;">
+            <div class="info-bubble"><strong>Lucas Martin</strong><br>Expert Vitrerie</div>
         </div>
     </div>
 </section>
@@ -185,11 +181,9 @@
 <section id="entreprise">
     <div class="company-hero">
         <h2 style="color: white; margin-bottom: 10px;">Identité de l'Entreprise</h2>
-        <p style="opacity: 0.8;">Informations légales relatives à ACQUA PROPRETE.</p>
-        
         <div class="data-grid">
             <div class="data-item">
-                <h4>Dénomination sociale</h4>
+                <h4>Raison Sociale</h4>
                 <p>ACQUA PROPRETE</p>
             </div>
             <div class="data-item">
@@ -197,59 +191,39 @@
                 <p>31 RUE DES CARMES, 09100 PAMIERS</p>
             </div>
             <div class="data-item">
-                <h4>Numéro SIRET</h4>
+                <h4>SIRET</h4>
                 <p>834 082 703 00036</p>
             </div>
             <div class="data-item">
-                <h4>Secteur d'activité</h4>
-                <p>8122Z - Nettoyage industriel & bâtiments</p>
+                <h4>Code APE</h4>
+                <p>8122Z - Nettoyage industriel</p>
             </div>
-        </div>
-        
-        <div class="insurance-tag">
-            <p><strong>✓ Assurance RC Pro :</strong> Entreprise couverte par une Assurance Responsabilité Civile Professionnelle spécifique aux risques industriels et tertiaires.</p>
         </div>
     </div>
 </section>
 
-<section style="background: #fdfdfd;">
-    <h2 class="section-title">Confiance & Avis</h2>
-    <div class="grid" style="margin-bottom: 60px;">
-        <div style="text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 12px; background: white;">
-            <p style="font-size: 1.5rem; font-weight: bold; color: #4285F4;">Google Avis</p>
-            <p>⭐ 4.9/5 — Excellence Service</p>
-        </div>
-        <div style="text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 12px; background: white;">
-            <p style="font-size: 1.5rem; font-weight: bold; color: #FFD200;">Pages Jaunes</p>
-            <p>Consultez nos recommandations</p>
-        </div>
-    </div>
-
+<section id="faq">
     <div style="max-width: 800px; margin: 0 auto;">
-        <h3 style="margin-bottom: 30px; text-align: center;">Questions Fréquentes (FAQ)</h3>
+        <h2 class="section-title">Questions Fréquentes</h2>
         <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">Quelles zones géographiques couvrez-vous ? <span>+</span></div>
-            <div class="faq-answer">Basés à Pamiers (09100), nous intervenons dans toute l'Ariège et le sud de l'agglomération Toulousaine.</div>
+            <div class="faq-question" onclick="toggleFaq(this)">Qui est le responsable légal ? <span>+</span></div>
+            <div class="faq-answer">L'entreprise est dirigée par son représentant légal inscrit au registre, assurant la conformité de toutes nos prestations de service.</div>
         </div>
         <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">Qui dirige l'entreprise ? <span>+</span></div>
-            <div class="faq-answer">L'entreprise est un établissement dirigé par son représentant légal inscrit au RCS, garantissant une gestion professionnelle et structurée.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">Êtes-vous assurés en cas de dommages ? <span>+</span></div>
-            <div class="faq-answer">Oui, Acqua Propreté dispose d'une assurance Responsabilité Civile Professionnelle complète couvrant toutes nos interventions.</div>
+            <div class="faq-question" onclick="toggleFaq(this)">Quelles zones couvrez-vous ? <span>+</span></div>
+            <div class="faq-answer">Nous intervenons sur Pamiers, l'Ariège et le secteur sud de Toulouse.</div>
         </div>
     </div>
 </section>
 
 <section id="contact" style="background: var(--navy); color: white;">
-    <h2 class="section-title" style="color: white;">Demander un Devis Gratuit</h2>
+    <h2 class="section-title" style="color: white;">Contact & Devis</h2>
     <div style="max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: var(--radius); color: #333;">
         <form action="https://formspree.io/f/VOTRE_ID" method="POST">
-            <input type="text" name="nom" placeholder="Nom ou Entreprise" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd; border-radius:8px;" required>
+            <input type="text" name="nom" placeholder="Nom / Entreprise" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd; border-radius:8px;" required>
             <input type="email" name="email" placeholder="Votre Email" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd; border-radius:8px;" required>
-            <textarea name="message" placeholder="Détaillez votre besoin (surfaces, fréquence...)" rows="5" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd; border-radius:8px;" required></textarea>
-            <button type="submit" style="width:100%; background: var(--acqua); color: white; padding: 15px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Envoyer la demande</button>
+            <textarea name="message" placeholder="Votre besoin..." rows="4" style="width:100%; padding:15px; margin-bottom:15px; border:1px solid #ddd; border-radius:8px;" required></textarea>
+            <button type="submit" style="width:100%; background: var(--acqua); color: white; padding: 15px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Envoyer</button>
         </form>
     </div>
 </section>
@@ -257,33 +231,38 @@
 <footer>
     <div class="footer-grid">
         <div>
-            <h4 style="text-transform: uppercase;">ACQUA PROPRETE</h4>
-            <p>La référence en hygiène et propreté pour les professionnels, industries et syndics en Occitanie.</p>
+            <h4>ACQUA PROPRETE</h4>
+            <p>Maintenance et hygiène pour les professionnels en Occitanie depuis 2020.</p>
         </div>
         <div>
-            <h4>Contact Rapide</h4>
+            <h4>Coordonnées</h4>
             <p>📞 06 32 77 07 64</p>
-            <p>📞 07 75 95 68 81</p>
             <p>✉️ acquaproprete@gmail.com</p>
         </div>
         <div>
-            <h4>Informations Légales</h4>
+            <h4>Légal</h4>
             <p>SIRET : 834 082 703 00036</p>
-            <p>Siège : 31 RUE DES CARMES, 09100 PAMIERS</p>
-            <p>Activité : 8122Z - Nettoyage industriel</p>
+            <p>Webmaster : Guilhem SCHLOSSER</p>
         </div>
     </div>
     <div class="footer-bottom">
-        &copy; 2026 ACQUA PROPRETE — Tous droits réservés. <br>
-        Webmaster : Guilhem SCHLOSSER.
+        &copy; 2026 ACQUA PROPRETE — Tous droits réservés.
     </div>
 </footer>
 
 <script>
-    // Correction du bug de scroll au chargement
-    window.onload = function() {
-        window.scrollTo(0, 0);
-    };
+    // EMPÊCHE LE SCROLL AUTOMATIQUE AU CHARGEMENT
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+
+    window.scrollTo(0, 0);
+
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            window.scrollTo(0, 0);
+        }, 10);
+    });
 
     function toggleFaq(el) {
         const answer = el.nextElementSibling;
