@@ -42,31 +42,41 @@
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+        html { scroll-behavior: smooth; scroll-padding-top: 100px; }
         body { font-family: 'DM Sans', sans-serif; background: var(--white); color: #333; line-height: 1.6; overflow-x: hidden; }
         
         h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
 
-        /* --- MENU --- */
+        /* --- MENU AVEC LOGO MIS EN ÉVIDENCE --- */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
             display: flex; align-items: center; justify-content: space-between;
-            padding: 0 5vw; height: 80px;
+            padding: 0 5vw; height: 90px;
             background: rgba(255, 255, 255, 0.98);
-            border-bottom: 2px solid var(--acqua);
+            border-bottom: 3px solid var(--acqua);
             box-shadow: var(--shadow);
         }
-        .nav-logo { display: flex; align-items: center; gap: 12px; font-weight: bold; color: var(--navy); text-decoration: none; text-transform: uppercase; }
-        .nav-logo img { height: 45px; width: auto; }
-        .nav-links a { color: var(--navy); text-decoration: none; margin-left: 20px; font-weight: 500; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-logo { display: flex; align-items: center; gap: 15px; font-weight: bold; color: var(--navy); text-decoration: none; text-transform: uppercase; font-size: 1.2rem; letter-spacing: 0.5px; }
+        /* Logo plus grand et mis en valeur */
+        .nav-logo img { height: 65px; width: auto; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.1)); transition: transform 0.3s; }
+        .nav-logo:hover img { transform: scale(1.05); }
+        .nav-links a { color: var(--navy); text-decoration: none; margin-left: 20px; font-weight: 700; font-size: 0.95rem; transition: color 0.2s; }
         .nav-links a:hover { color: var(--green); }
 
         /* --- SECTIONS --- */
-        section { padding: 100px 5vw; position: relative; }
+        section { padding: 80px 5vw; position: relative; }
         .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 10px; }
-        .section-subtitle { text-align: center; margin-bottom: 50px; opacity: 0.7; font-style: italic; }
+        .section-subtitle { text-align: center; margin-bottom: 25px; opacity: 0.7; font-style: italic; }
 
-        .section-separator { display: block; max-width: 300px; margin: -30px auto 50px; height: auto; }
+        /* Correction du liseré horizontal : il prend toute la largeur de manière fluide sans répétition */
+        .section-separator { 
+            display: block; 
+            width: 100%; 
+            max-width: 800px; 
+            height: 20px; 
+            margin: 0 auto 40px; 
+            object-fit: fill; /* Étire l'image sur sa longueur proprement */
+        }
 
         /* --- GRILLES & CARTES --- */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
@@ -102,12 +112,15 @@
         }
         .member-point:hover .info-bubble { visibility: visible; opacity: 1; bottom: 50px; }
 
-        /* --- IDENTITÉ ENTREPRISE --- */
-        .company-hero { background: var(--navy); color: white; padding: 60px 5vw; border-radius: var(--radius); position: relative; }
-        .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 30px; }
+        /* --- IDENTITÉ ENTREPRISE (Refondue selon la carte) --- */
+        .company-hero { background: var(--navy); color: white; padding: 50px 5vw; border-radius: var(--radius); position: relative; text-align: center;}
+        .company-hero .subtitle-legal { font-size: 0.9rem; font-weight: normal; text-transform: uppercase; letter-spacing: 2px; color: #a1b5cc; margin-bottom: 5px; display: block; }
+        .company-hero .main-title-legal { font-size: 2.8rem; font-family: 'Playfair Display', serif; color: white; margin-bottom: 35px; line-height: 1.2; }
+        
+        .data-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: left; }
         .data-item h4 { color: var(--green); font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 5px; text-transform: uppercase; }
 
-        /* --- FAQ SECURE NATIVE --- */
+        /* --- FAQ --- */
         .faq-item { border-bottom: 1px solid #eee; margin-bottom: 10px; background: #fdfdfd; }
         .faq-item summary { padding: 20px; font-weight: bold; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; color: var(--navy); }
         .faq-item summary::-webkit-details-marker { display: none; }
@@ -122,9 +135,10 @@
         .form-control { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; transition: border-color 0.2s; }
         .form-control:focus { outline: none; border-color: var(--green); }
 
-        /* --- DECORATIONS LISERES HAUT & BAS --- */
-        .lisere-top { width: 100%; display: block; height: auto; margin-top: 80px; }
-        .lisere-bottom { width: 100%; display: block; height: auto; margin-bottom: -5px; background: #0a141d; }
+        /* --- LISERES DE VAGUES AJUSTÉS & INVERSÉS --- */
+        /* scaleY(-1) inverse le liseré du haut verticalement pour qu'il s'écoule correctement vers le bas */
+        .lisere-top { width: 100%; display: block; height: 60px; object-fit: cover; margin-top: 90px; transform: scaleY(-1); } 
+        .lisere-bottom { width: 100%; display: block; height: 60px; object-fit: cover; margin-bottom: -5px; background: #0a141d; }
 
         /* --- FOOTER --- */
         footer { background: #0a141d; color: #b0b8c1; padding: 60px 5vw 30px; }
@@ -132,13 +146,15 @@
         footer h4 { color: white; margin-bottom: 20px; border-bottom: 2px solid var(--green); padding-bottom: 5px; display: inline-block; }
         .footer-bottom { margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; text-align: center; }
 
-        /* --- RESPONSIVE OPTIMISÉ --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             nav { height: auto; padding: 15px 5vw; flex-direction: column; gap: 10px; position: fixed; }
+            .nav-logo img { height: 50px; }
             .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
             .nav-links a { margin-left: 0; padding: 5px 10px; font-size: 0.85rem; }
-            .lisere-top { margin-top: 130px; }
-            header { padding: 50px 5vw 60px !important; }
+            .lisere-top { margin-top: 140px; height: 40px; }
+            header { padding: 40px 5vw 40px !important; }
+            .company-hero .main-title-legal { font-size: 2rem; }
             section { padding: 60px 5vw; }
             .section-title { font-size: 2rem; }
         }
@@ -159,11 +175,12 @@
     </div>
 </nav>
 
+<!-- Liseré du haut inversé à 180° verticalement via CSS -->
 <img src="images/lisere2.png" alt="" class="lisere-top">
 
-<header id="top" style="padding: 100px 5vw 100px; text-align: center; background: radial-gradient(circle at top right, #f0f7ff, #ffffff);">
+<header id="top" style="padding: 50px 5vw 60px; text-align: center; background: radial-gradient(circle at top right, #f0f7ff, #ffffff);">
     <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px;">L'Excellence du Nettoyage Professionnel</h1>
-    <p style="font-size: 1.25rem; max-width: 850px; margin: 0 auto 40px; color: #555;">
+    <p style="font-size: 1.25rem; max-width: 850px; margin: 0 auto 30px; color: #555;">
         <strong>Acqua Propreté</strong> assure l'entretien de vos locaux industriels, bureaux et copropriétés. Rencontrons-nous pour étudier vos besoins.
     </p>
     <a href="#contact-section" style="display: inline-block; background: var(--navy); color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 10px 20px rgba(21,54,96,0.2); transition: background 0.2s;" onmouseover="this.style.background='var(--acqua)'" onmouseout="this.style.background='var(--navy)'">Nous contacter / Prendre RDV</a>
@@ -173,6 +190,7 @@
     <section id="services">
         <h2 class="section-title">Nos Domaines d'Expertise</h2>
         <p class="section-subtitle">Solutions de nettoyage spécialisées à Pamiers et ses environs.</p>
+        <!-- Liseré étiré en longueur sans répétition -->
         <img src="images/lisere-1.png" alt="" class="section-separator">
         
         <div class="grid">
@@ -194,6 +212,7 @@
     <section id="equipe" style="background: var(--light-bg);">
         <h2 class="section-title">Notre Équipe</h2>
         <p class="section-subtitle">Des professionnels engagés. Survolez les points pour identifier nos experts.</p>
+        <!-- Liseré étiré en longueur sans répétition -->
         <img src="images/lisere-1.png" alt="" class="section-separator">
         
         <div class="team-wrapper">
@@ -212,13 +231,12 @@
     </section>
 
     <section id="entreprise">
+        <!-- Section refondue selon tes instructions de hiérarchie -->
         <div class="company-hero">
-            <h2 style="color: white; margin-bottom: 10px;">Identité de l'Entreprise</h2>
+            <span class="subtitle-legal">Identité de l'Entreprise</span>
+            <h2 class="main-title-legal">ACQUA PROPRETE</h2>
+            
             <div class="data-grid">
-                <div class="data-item">
-                    <h4>Raison Sociale</h4>
-                    <p>ACQUA PROPRETE</p>
-                </div>
                 <div class="data-item">
                     <h4>Siège Social</h4>
                     <p>31 RUE DES CARMES, 09100 PAMIERS</p>
@@ -230,6 +248,10 @@
                 <div class="data-item">
                     <h4>Code APE</h4>
                     <p>8122Z - Nettoyage industriel</p>
+                </div>
+                <div class="data-item">
+                    <h4>Zone d'activité</h4>
+                    <p>Pamiers, Ariège et Sud Toulousain</p>
                 </div>
             </div>
         </div>
